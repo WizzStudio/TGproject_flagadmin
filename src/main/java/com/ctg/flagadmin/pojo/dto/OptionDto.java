@@ -1,6 +1,6 @@
 package com.ctg.flagadmin.pojo.dto;
 
-public class OptionDto<A, B> {
+public class OptionDto <A, B> {
     private A optKey;
     private B optVal;
 

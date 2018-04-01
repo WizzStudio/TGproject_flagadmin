@@ -1,12 +1,12 @@
 package com.ctg.flagadmin.enums;
 
-public enum  ResponseStatusEnum {
-    SUCCEED(0),
-    FAILED(1);
+public enum UserInfoStateEnum {
+    INCOMPLETED(0),
+    COMPLETED(1);
 
     private Integer value;
 
-    ResponseStatusEnum(int value) {
+    UserInfoStateEnum(int value) {
         this.value = value;
     }
 
