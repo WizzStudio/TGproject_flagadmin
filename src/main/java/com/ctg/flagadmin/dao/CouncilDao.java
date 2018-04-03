@@ -1,10 +1,9 @@
 package com.ctg.flagadmin.dao;
 
-import com.ctg.flagadmin.pojo.entity.User;
+import com.ctg.flagadmin.pojo.entity.CouncilOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserDao extends JpaRepository<User, Integer> {
-    User getById(Integer id);
+public interface CouncilDao extends JpaRepository<CouncilOrder, Integer> {
 }

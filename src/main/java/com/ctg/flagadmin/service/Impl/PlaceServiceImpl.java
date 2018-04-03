@@ -1,7 +1,8 @@
 package com.ctg.flagadmin.service.Impl;
 
-import com.ctg.flagadmin.service.PlaceOrderService;
+import com.ctg.flagadmin.service.PlaceService;
+import org.springframework.stereotype.Service;
 
-
-public class PlaceServiceImpl implements PlaceOrderService {
+@Service
+public class PlaceServiceImpl implements PlaceService {
 }
