@@ -6,10 +6,7 @@ import com.ctg.flagadmin.pojo.dto.SpaceApplyListItemDto;
 import com.ctg.flagadmin.pojo.entity.SpaceApply;
 import com.ctg.flagadmin.service.SpaceApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +36,27 @@ public class SpaceApplyController {
     }
 
     /**
+     * 审批入住申请
+     */
+    @RequestMapping(value = "/{aid}", method = RequestMethod.PUT)
+    public ResponseDto updateSpaceApply(@PathVariable(name = "aid") Integer aid,
+                                        @RequestParam(name = "feedback") String feedback,
+                                        @RequestParam(name = "state") Integer state) {
+        spaceApplyService.audit(aid, state, feedback);
+
+        return ResponseDto.succeed();
+    }
+
+    /**
+     * 获得申请入驻的数量
+     */
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    public ResponseDto countPendingSpaceApply() {
+        Integer count = spaceApplyService.countPending();
+        return ResponseDto.succeed(null, count);
+    }
+
+    /**
      * 获得未审核的众创空间申请的列表
      */
     @RequestMapping(value = "/pending", method = RequestMethod.GET)
@@ -53,7 +71,7 @@ public class SpaceApplyController {
     @RequestMapping(value = "/completed", method = RequestMethod.GET)
     public ResponseDto getCompletedSpaceApply() {
         List<Integer> states = new ArrayList<>();
-        // 已完成的状态
+        // 已完成的状态有两个，审核通过，审核失败
         states.add(SpaceApplyStateEnum.ACCEPTING.getValue());
         states.add(SpaceApplyStateEnum.REFUSED.getValue());
         List<SpaceApplyListItemDto> applies = spaceApplyService.findAllByStateIn(states);

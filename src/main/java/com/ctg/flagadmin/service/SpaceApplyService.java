@@ -11,4 +11,8 @@ public interface SpaceApplyService {
     List<SpaceApplyListItemDto> findAllByState(Integer state);
 
     List<SpaceApplyListItemDto> findAllByStateIn(List<Integer> states);
+
+    void audit(Integer aid, Integer state, String feedback);
+
+    Integer countPending();
 }

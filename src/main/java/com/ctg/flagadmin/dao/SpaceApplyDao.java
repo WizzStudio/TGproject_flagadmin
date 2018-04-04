@@ -11,4 +11,6 @@ public interface SpaceApplyDao extends JpaRepository<SpaceApply, Integer> {
     List<SpaceApply> findAllByState(Integer state);
 
     List<SpaceApply> findAllByStateIn(Collection<Integer> state);
+
+    Integer countByState(Integer state);
 }

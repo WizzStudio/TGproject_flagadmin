@@ -1,6 +1,7 @@
 package com.ctg.flagadmin.service.Impl;
 
 import com.ctg.flagadmin.dao.SpaceApplyDao;
+import com.ctg.flagadmin.enums.SpaceApplyStateEnum;
 import com.ctg.flagadmin.pojo.dto.SpaceApplyListItemDto;
 import com.ctg.flagadmin.pojo.entity.SpaceApply;
 import com.ctg.flagadmin.service.SpaceApplyService;
@@ -45,5 +46,18 @@ public class SpaceApplyServiceImpl implements SpaceApplyService{
         }
         items.sort(Comparator.comparing(SpaceApplyListItemDto::getCreateTime));
         return items;
+    }
+
+    @Override
+    public void audit(Integer aid, Integer state, String feedback) {
+        SpaceApply spaceApply = spaceApplyDao.getById(aid);
+        spaceApply.setState(state);
+        spaceApply.setFeedback(feedback);
+        spaceApplyDao.save(spaceApply);
+    }
+
+    @Override
+    public Integer countPending() {
+        return spaceApplyDao.countByState(SpaceApplyStateEnum.PENDING.getValue());
     }
 }

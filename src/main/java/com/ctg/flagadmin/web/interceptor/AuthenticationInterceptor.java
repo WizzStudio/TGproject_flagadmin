@@ -13,13 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor{
-    UserService userService;
-
-    @Autowired
-    public AuthenticationInterceptor(UserService userService) {
-        this.userService = userService;
-    }
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws NoJWTException {
