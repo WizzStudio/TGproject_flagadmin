@@ -3,8 +3,10 @@ package com.ctg.flagadmin.utils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -14,22 +16,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class JWTUtil {
-    @Value("${jwt.http.header}")
-    public static String jwtHttpHeader;
-
-    @Value("${jwt.user.idKey}")
+    private static String jwtHttpHeader;
     public static String USER_ID_KEY;
-
-    @Value("${jwt.user.roleKey}")
     public static String USER_ROLE_KEY;
-
-    @Value("${jwt.secret}")
     private static String SECRET;
-
-    @Value("${jwt.expireTime}")
     private static Long EXPIRE_TIME;
-
     private static Algorithm algorithm;
     private static JWTVerifier jwtVerifier;
 
@@ -82,7 +75,33 @@ public class JWTUtil {
     /**
      * jwt 验证
      */
-    public static DecodedJWT verifyToken(String token) {
+    public static DecodedJWT verifyToken(String token) throws SignatureVerificationException {
         return jwtVerifier.verify(token);
+    }
+
+
+    @Value("${jwt.http.header}")
+    public void setJwtHttpHeader(String jwtHttpHeader) {
+        JWTUtil.jwtHttpHeader = jwtHttpHeader;
+    }
+
+    @Value("${jwt.idKey}")
+    public void setUserIdKey(String userIdKey) {
+        USER_ID_KEY = userIdKey;
+    }
+
+    @Value("${jwt.roleKey}")
+    public void setUserRoleKey(String userRoleKey) {
+        USER_ROLE_KEY = userRoleKey;
+    }
+
+    @Value("${jwt.secret}")
+    public void setSECRET(String SECRET) {
+        JWTUtil.SECRET = SECRET;
+    }
+
+    @Value("${jwt.expireTime}")
+    public void setExpireTime(Long expireTime) {
+        EXPIRE_TIME = expireTime;
     }
 }

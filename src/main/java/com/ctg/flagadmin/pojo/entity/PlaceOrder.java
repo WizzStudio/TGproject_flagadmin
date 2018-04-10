@@ -17,25 +17,25 @@ public class PlaceOrder {
 
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    private Date startTime;
+    private Date startTime;  // 开始时间
 
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    private Date endTime;
+    private Date endTime;  // 结束时间
 
-    private String department;
+    private String department;  // 部门
 
-    private String activity;
+    private String activity; // 活动内
 
-    private String people;
+    private String people; // 人员安排
 
-    private String prop;
+    private String prop; // 工具
 
-    private String content;
+    private String content; // 宣传品
 
-    private String admin;
+    private String admin;  // 负责人
 
-    private String phone;
+    private String phone; // 负责人电话
 
     private String feedback;
 

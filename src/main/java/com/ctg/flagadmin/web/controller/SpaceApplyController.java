@@ -40,9 +40,9 @@ public class SpaceApplyController {
      */
     @RequestMapping(value = "/{aid}", method = RequestMethod.PUT)
     public ResponseDto updateSpaceApply(@PathVariable(name = "aid") Integer aid,
-                                        @RequestParam(name = "feedback") String feedback,
+                                        @RequestParam(name = "feedback", defaultValue = "无") String feedback,
                                         @RequestParam(name = "state") Integer state) {
-        spaceApplyService.audit(aid, state, feedback);
+        spaceApplyService.check(aid, state, feedback);
 
         return ResponseDto.succeed();
     }

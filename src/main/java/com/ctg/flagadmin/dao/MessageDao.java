@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MessageDao extends JpaRepository<Message, Integer> {
     Message getById(Integer id);
+
+    Message getByKindAndState(Integer kind, Integer value);
 }

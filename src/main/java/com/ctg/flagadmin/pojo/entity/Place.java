@@ -19,6 +19,16 @@ public class Place {
 
     private String description;
 
+    private Integer aid;  // 记录是哪个管理员提交的场地
+
+    public Integer getAid() {
+        return aid;
+    }
+
+    public void setAid(Integer aid) {
+        this.aid = aid;
+    }
+
     public String getName() {
         return name;
     }

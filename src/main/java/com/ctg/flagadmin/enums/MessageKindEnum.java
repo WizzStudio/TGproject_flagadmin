@@ -4,7 +4,8 @@ public enum  MessageKindEnum {
     /**
      * 星火众创空间信息
      */
-    START_SPACE(0) ;
+    START_SPACE(0),
+    COUNCIL(1);
 
     private Integer value;
 

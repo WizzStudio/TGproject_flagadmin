@@ -17,14 +17,19 @@ public enum AdminKindEnum {
     CREATE_SPACE_ADMIN(2),
 
     /**
-     * 会务室管理员
+     * 一级会务室管理员
      */
-    CONFERENCE_ROOM_ADMIN(3),
+    FIRST_COUNCIL_ADMIN(3),
+
+    /**
+     * 二级会务室管理员
+     */
+    SECOND_COUNCIL_ADMIN(4),
 
     /**
      * 众创申请入驻管理员
      */
-    SPACE_APPLY_ADMIN(4);
+    SPACE_APPLY_ADMIN(5);
 
     private Integer value ;//状态码
 

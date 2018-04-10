@@ -2,7 +2,6 @@ package com.ctg.flagadmin.web.interceptor;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.ctg.flagadmin.exception.NoJWTException;
-import com.ctg.flagadmin.service.UserService;
 import com.ctg.flagadmin.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

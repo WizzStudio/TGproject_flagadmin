@@ -12,7 +12,13 @@ public interface SpaceApplyService {
 
     List<SpaceApplyListItemDto> findAllByStateIn(List<Integer> states);
 
-    void audit(Integer aid, Integer state, String feedback);
-
+    /**
+     * 正在申请入住的数量
+     */
     Integer countPending();
+
+    /**
+     * 审批入住
+     */
+    void check(Integer aid, Integer state, String feedback);
 }

@@ -12,9 +12,6 @@ public interface PlaceOrderDao extends JpaRepository<PlaceOrder, Integer> {
     /**
      * 根据这个管理员能够管理的场地pids，
      * 查找目标状态的订单
-     * @param state
-     * @param pids
-     * @return
      */
     List<PlaceOrder> findAllByStateAndPidIn(Integer state, Collection<Integer> pids);
     

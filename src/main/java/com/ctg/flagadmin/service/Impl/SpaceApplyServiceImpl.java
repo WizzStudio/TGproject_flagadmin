@@ -49,7 +49,7 @@ public class SpaceApplyServiceImpl implements SpaceApplyService{
     }
 
     @Override
-    public void audit(Integer aid, Integer state, String feedback) {
+    public void check(Integer aid, Integer state, String feedback) {
         SpaceApply spaceApply = spaceApplyDao.getById(aid);
         spaceApply.setState(state);
         spaceApply.setFeedback(feedback);
