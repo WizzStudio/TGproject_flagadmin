@@ -3,10 +3,12 @@ package com.ctg.flagadmin.service.Impl;
 import com.ctg.flagadmin.dao.CouncilOrderDao;
 import com.ctg.flagadmin.enums.AdminKindEnum;
 import com.ctg.flagadmin.enums.CouncilStateEnum;
+import com.ctg.flagadmin.pojo.dto.CouncilOrderDetailDto;
 import com.ctg.flagadmin.pojo.dto.CouncilOrderListDto;
 import com.ctg.flagadmin.pojo.dto.CouncilOrderListDtoComponent.ListCompletedTimeDto;
 import com.ctg.flagadmin.pojo.dto.CouncilOrderListDtoComponent.ListOrderItemDto;
 import com.ctg.flagadmin.pojo.entity.CouncilOrder;
+import com.ctg.flagadmin.pojo.entity.Place;
 import com.ctg.flagadmin.service.CouncilOrderService;
 import com.ctg.flagadmin.service.CouncilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,19 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
     public CouncilOrder getById(Integer oid) {
         return councilOrderDao.getById(oid);
     }
+
+    @Override
+    public CouncilOrderDetailDto getDetailById(Integer oid) {
+        CouncilOrder co =  councilOrderDao.getById(oid);
+        if (co == null)
+            return null;
+        Place council = councilService.getById(co.getCid());
+        CouncilOrderDetailDto codd = new CouncilOrderDetailDto(co);
+        codd.setCouncilName(council.getName());
+        return codd;
+    }
+
+
 
     @Override
     public List<CouncilOrderListDto> listPendingOrderByRole(Integer role) {

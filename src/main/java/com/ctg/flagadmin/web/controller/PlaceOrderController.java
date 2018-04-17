@@ -38,7 +38,7 @@ public class PlaceOrderController {
     /**
      * 获得正在审核的列表
      * 依据管理员的种类
-     * 有问题！！！！！！
+     * 有问题！！！！！！ 暂停开发
      */
     @RequestMapping(value = "/pending", method = RequestMethod.GET)
     public ResponseDto getPendingPlaceOrderList(HttpServletRequest request) {
@@ -51,7 +51,7 @@ public class PlaceOrderController {
     /**
      * 获得已经审核的列表
      * 依据管理员的种类
-     * 有问题！！！！！！
+     * 有问题！！！！！！ 暂停开发
      */
     @RequestMapping(value = "/completed", method = RequestMethod.GET)
     public ResponseDto getCompletedPlaceOrderList(HttpServletRequest request) {

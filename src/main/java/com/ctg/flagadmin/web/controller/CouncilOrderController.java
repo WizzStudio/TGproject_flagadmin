@@ -1,5 +1,6 @@
 package com.ctg.flagadmin.web.controller;
 
+import com.ctg.flagadmin.pojo.dto.CouncilOrderDetailDto;
 import com.ctg.flagadmin.pojo.dto.CouncilOrderListDto;
 import com.ctg.flagadmin.pojo.dto.OptionDto;
 import com.ctg.flagadmin.pojo.dto.ResponseDto;
@@ -26,11 +27,10 @@ public class CouncilOrderController {
 
     /**
      * 获得会务室申请详情
-     * 需要把场地具体内容加上！！！！
      */
     @RequestMapping(value = "/{oid}", method = RequestMethod.GET)
     public ResponseDto getCouncilOrderDetail(@PathVariable(value = "oid") Integer oid) {
-        CouncilOrder co = councilOrderService.getById(oid);
+        CouncilOrderDetailDto co = councilOrderService.getDetailById(oid);
         return ResponseDto.succeed(null, co);
     }
 

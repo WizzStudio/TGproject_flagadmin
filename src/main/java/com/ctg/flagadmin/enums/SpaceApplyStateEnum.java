@@ -19,7 +19,17 @@ public enum SpaceApplyStateEnum {
     /**
      * 已删除
      */
-    DELETED(3);
+    ACCEPTED_DELETED(3),
+
+    /**
+     * 未审核删除
+     */
+    PENDING_DELETED(4),
+
+    /**
+     * 审核失败删除
+     */
+    REFUSED_DELETED(5);
 
     private Integer value;
 

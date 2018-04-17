@@ -20,8 +20,10 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public void saveMessage(Integer userId, Integer kind, String content) {
         Message m = messageDao.getByKindAndState(kind, MessageStateEnum.EXISTING.getValue());
-        m.setState(MessageStateEnum.DELETED.getValue());
-        messageDao.save(m);
+        if (m != null) {
+            m.setState(MessageStateEnum.DELETED.getValue());
+            messageDao.save(m);
+        }
 
         Message message = new Message();
         message.setAid(userId);
@@ -34,6 +36,7 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public String getExistedCouncilMessage() {
         Message message = messageDao.getByKindAndState(MessageKindEnum.COUNCIL.getValue(), MessageStateEnum.EXISTING.getValue());
+        if (message == null) return null;
         return message.getContent();
     }
 }

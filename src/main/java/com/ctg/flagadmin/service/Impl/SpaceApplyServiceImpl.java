@@ -51,7 +51,11 @@ public class SpaceApplyServiceImpl implements SpaceApplyService{
     @Override
     public void check(Integer aid, Integer state, String feedback) {
         SpaceApply spaceApply = spaceApplyDao.getById(aid);
-        spaceApply.setState(state);
+        System.out.println(state);
+        if (state.equals(0))
+            spaceApply.setState(SpaceApplyStateEnum.REFUSED.getValue());
+        else if (state.equals(1))
+            spaceApply.setState(SpaceApplyStateEnum.ACCEPTING.getValue());
         spaceApply.setFeedback(feedback);
         spaceApplyDao.save(spaceApply);
     }

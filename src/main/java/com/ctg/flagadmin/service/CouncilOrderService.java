@@ -1,7 +1,7 @@
 package com.ctg.flagadmin.service;
 
+import com.ctg.flagadmin.pojo.dto.CouncilOrderDetailDto;
 import com.ctg.flagadmin.pojo.dto.CouncilOrderListDto;
-import com.ctg.flagadmin.pojo.dto.OptionDto;
 import com.ctg.flagadmin.pojo.entity.CouncilOrder;
 
 import java.util.List;
@@ -12,6 +12,8 @@ public interface CouncilOrderService {
      * 获取会务室申请详情
      */
     CouncilOrder getById(Integer oid);
+
+    CouncilOrderDetailDto getDetailById(Integer oid);
 
     /**
      * 通过角色获得不同的正在申请的会务室

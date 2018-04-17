@@ -34,6 +34,7 @@ public class MessageController {
     /**
      * 获得当前会务室提醒信息
      */
+    @GetMapping(value = "/council")
     public ResponseDto getCouncilMessage() {
         String message = messageService.getExistedCouncilMessage();
         return ResponseDto.succeed(null, message);
