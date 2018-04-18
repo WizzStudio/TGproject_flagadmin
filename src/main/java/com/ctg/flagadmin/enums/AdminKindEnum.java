@@ -12,11 +12,6 @@ public enum AdminKindEnum {
     ORDINARY_ROOM_PRIMARY_ADMIN(1),
 
     /**
-     * 众创空间管理员
-     */
-    CREATE_SPACE_ADMIN(2),
-
-    /**
      * 一级会务室管理员
      */
     FIRST_COUNCIL_ADMIN(3),
