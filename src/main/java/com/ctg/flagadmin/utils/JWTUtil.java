@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Component
 public class JWTUtil {
-    private static String jwtHttpHeader;
+    public static String JWT_HTTP_HEADER;
     public static String USER_ID_KEY;
     public static String USER_ROLE_KEY;
     private static String SECRET;
@@ -62,14 +62,14 @@ public class JWTUtil {
      * 添加响应头
      */
     public static void setToken(HttpServletResponse response, String token) {
-        response.setHeader(jwtHttpHeader, token);
+        response.setHeader(JWT_HTTP_HEADER, token);
     }
 
     /**
      * 从请求头中获得token
      */
     public static String getToken(HttpServletRequest request) {
-        return request.getHeader(jwtHttpHeader);
+        return request.getHeader(JWT_HTTP_HEADER);
     }
 
     /**
@@ -82,7 +82,7 @@ public class JWTUtil {
 
     @Value("${jwt.http.header}")
     public void setJwtHttpHeader(String jwtHttpHeader) {
-        JWTUtil.jwtHttpHeader = jwtHttpHeader;
+        JWTUtil.JWT_HTTP_HEADER = jwtHttpHeader;
     }
 
     @Value("${jwt.idKey}")

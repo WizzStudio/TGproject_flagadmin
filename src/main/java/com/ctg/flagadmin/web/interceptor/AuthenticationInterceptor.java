@@ -3,7 +3,6 @@ package com.ctg.flagadmin.web.interceptor;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.ctg.flagadmin.exception.NoJWTException;
 import com.ctg.flagadmin.utils.JWTUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -16,6 +15,12 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws NoJWTException {
         String token = JWTUtil.getToken(request);
+
+        // 预检，若含有authorization，直接过
+        if (request.getMethod().equalsIgnoreCase("OPTIONS") &&
+                request.getHeader("access-control-request-headers").equalsIgnoreCase(JWTUtil.JWT_HTTP_HEADER)) {
+            return true;
+        }
 
         if (token == null) {
             throw new NoJWTException();
