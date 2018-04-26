@@ -197,7 +197,7 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
             } else if (role.equals(AdminKindEnum.SECOND_COUNCIL_ADMIN.getValue())) {
                 state = CouncilStateEnum.SECOND_ACCEPT.getValue();
             }
-        // 二级不确定
+        // 二级不确定, state == 2
         } else {
             state = CouncilStateEnum.SECOND_NOT_SURE.getValue();
         }

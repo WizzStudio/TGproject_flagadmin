@@ -18,3 +18,12 @@ jwt:
   roleKey: role
   secret: flag
   expireTime: 2592000000
+
+logging:
+  level:
+    org.springframework.web: error
+    com.ctg: debug
+  pattern:
+    console: "[%-5level] %d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "[%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] %logger{36} - %msg%n"
+  file: flag.log

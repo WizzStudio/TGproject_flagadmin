@@ -3,6 +3,7 @@ package com.ctg.flagadmin.config;
 import com.ctg.flagadmin.web.interceptor.AuthenticationInterceptor;
 import com.ctg.flagadmin.web.interceptor.PostStarMessageInterceptor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,6 +15,15 @@ public class InterceptorWebConfigurer implements WebMvcConfigurer {
                                     PostStarMessageInterceptor postStarMessageInterceptor) {
         this.authenticationInterceptor = authenticationInterceptor;
         this.postStarMessageInterceptor = postStarMessageInterceptor;
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .exposedHeaders("authorization")
+                .allowCredentials(false).maxAge(3600);
     }
 
     @Override

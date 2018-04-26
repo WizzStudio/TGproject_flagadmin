@@ -6,7 +6,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
+/**
+ * 弃用， 改用WebConfigure
+ */
 public class CorsFilter implements Filter {
 
     @Override
