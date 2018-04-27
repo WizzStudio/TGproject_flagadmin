@@ -80,11 +80,10 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
 
                     cold.setCompletedTime(lctds);
                     cold.setOrderItem(loids);
-                    cold.setDate(getDate(date));
+                    cold.setDate(getDate(loids.get(0).getStartTime()));
                     colds.add(cold);
-
-                    date = co.getStartTime();
                 }
+                date = co.getStartTime();
                 loids = new ArrayList<>();
                 lctds = new ArrayList<>();
             }
