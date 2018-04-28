@@ -37,10 +37,11 @@ public class CouncilOrderController {
     /**
      * 获得未审核的会务室申请列表
      */
-    @RequestMapping(value = "/pending", method = RequestMethod.GET)
-    public ResponseDto getPendingCouncilOrderList(HttpServletRequest request) {
+    @RequestMapping(value = "/pending/{cid}", method = RequestMethod.GET)
+    public ResponseDto getPendingCouncilOrderList(@PathVariable("cid") Integer cid,
+                                                  HttpServletRequest request) {
         Integer role = (Integer) request.getAttribute(JWTUtil.USER_ROLE_KEY);
-        List<CouncilOrderListDto> colds = councilOrderService.listPendingOrderByRole(role);
+        List<CouncilOrderListDto> colds = councilOrderService.listPendingOrderByRole(cid, role);
         return ResponseDto.succeed(null, colds);
     }
 

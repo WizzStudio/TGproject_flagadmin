@@ -18,7 +18,7 @@ public interface CouncilOrderService {
     /**
      * 通过角色获得不同的正在申请的会务室
      */
-    List<CouncilOrderListDto> listPendingOrderByRole(Integer role);
+    List<CouncilOrderListDto> listPendingOrderByRole(Integer cid, Integer role);
 
     /**
      * 通过角色获得不同的已经完成的会务室

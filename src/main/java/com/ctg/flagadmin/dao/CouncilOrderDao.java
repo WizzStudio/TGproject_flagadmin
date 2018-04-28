@@ -12,15 +12,15 @@ import java.util.List;
 public interface CouncilOrderDao extends JpaRepository<CouncilOrder, Integer> {
     CouncilOrder getById(Integer id);
 
+    List<CouncilOrder> findAllByStateInOrderByUpdateTimeDesc(Collection<Integer> state);
+
+    List<CouncilOrder> findAllByStateInOrderByCid(List<Integer> states);
+
     /**
      * 获得状态在states中的时间大于给定时间的正在审核的订单
      * 并且按照时间排序
      * @param states 目标状态集合
      * @param startTime 分界线
      */
-    List<CouncilOrder> findAllByStateInAndStartTimeGreaterThanOrderByStartTime(Collection<Integer> states, Date startTime);
-
-    List<CouncilOrder> findAllByStateInOrderByUpdateTimeDesc(Collection<Integer> state);
-
-    List<CouncilOrder> findAllByStateInOrderByCid(List<Integer> states);
+    List<CouncilOrder> findAllByCidAndStateInAndStartTimeGreaterThanOrderByStartTime(Integer id, List<Integer> states, Date startTime);
 }

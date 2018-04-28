@@ -46,14 +46,14 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
 
 
     @Override
-    public List<CouncilOrderListDto> listPendingOrderByRole(Integer role) {
+    public List<CouncilOrderListDto> listPendingOrderByRole(Integer cid, Integer role) {
         List<Integer> states = new ArrayList<>();
         states.add(CouncilStateEnum.PENDING.getValue());
         states.add(CouncilStateEnum.SECOND_NOT_SURE.getValue());
         states.add(CouncilStateEnum.SECOND_ACCEPT.getValue());
         states.add(CouncilStateEnum.FIRST_ACCEPT.getValue());
-        List<CouncilOrder> cos = councilOrderDao.findAllByStateInAndStartTimeGreaterThanOrderByStartTime(
-                states, getTimeMorning());
+        List<CouncilOrder> cos = councilOrderDao.findAllByCidAndStateInAndStartTimeGreaterThanOrderByStartTime(
+                cid, states, getTimeMorning());
 
         List<CouncilOrderListDto> colds = new ArrayList<>();
         List<ListOrderItemDto> loids = new ArrayList<>();
