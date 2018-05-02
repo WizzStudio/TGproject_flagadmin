@@ -5,6 +5,7 @@ import com.ctg.flagadmin.enums.MessageKindEnum;
 import com.ctg.flagadmin.enums.MessageStateEnum;
 import com.ctg.flagadmin.pojo.entity.Message;
 import com.ctg.flagadmin.service.MessageService;
+import org.hibernate.validator.internal.engine.messageinterpolation.parser.MessageState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,13 @@ public class MessageServiceImpl implements MessageService{
 
     @Override
     public void saveMessage(Integer userId, Integer kind, String content) {
-        Message m = messageDao.getByKindAndState(kind, MessageStateEnum.EXISTING.getValue());
-        if (m != null) {
-            m.setState(MessageStateEnum.DELETED.getValue());
-            messageDao.save(m);
-        }
+        // 先删除所有的该种类message
+        messageDao.updateAllStateByKind(kind, MessageStateEnum.DELETED.getValue());
+//        Message m = messageDao.getByKindAndState(kind, MessageStateEnum.EXISTING.getValue());
+//        if (m != null) {
+//            m.setState(MessageStateEnum.DELETED.getValue());
+//            messageDao.save(m);
+//        }
 
         Message message = new Message();
         message.setAid(userId);
