@@ -12,12 +12,12 @@ public enum AdminKindEnum {
     ORDINARY_ROOM_PRIMARY_ADMIN(1),
 
     /**
-     * 一级会务室管理员
+     * 一级会务室管理员,权限高于二级会务室管理员,能上传场地
      */
     FIRST_COUNCIL_ADMIN(3),
 
     /**
-     * 二级会务室管理员
+     * 二级会务室管理员,只能查看不能上传
      */
     SECOND_COUNCIL_ADMIN(4),
 

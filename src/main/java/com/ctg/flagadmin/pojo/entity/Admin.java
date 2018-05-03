@@ -13,7 +13,7 @@ public class Admin {
 
     private String password;
 
-    private Integer kind;
+    private Integer kind;//role
 
     public Integer getId() {
         return id;

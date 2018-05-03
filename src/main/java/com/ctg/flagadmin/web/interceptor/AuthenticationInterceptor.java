@@ -8,12 +8,19 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 
+/**
+ * 登录拦截器
+ */
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws NoJWTException {
+            throws NoJWTException,UnsupportedEncodingException {
+        //用拦截器解决请求乱码问题
+        request.setCharacterEncoding("utf-8");
+
         String token = JWTUtil.getToken(request);
 
         // 预检，若含有authorization，直接过

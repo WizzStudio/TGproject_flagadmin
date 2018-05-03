@@ -4,7 +4,6 @@ import com.ctg.flagadmin.exception.NoAuthorityException;
 import com.ctg.flagadmin.pojo.dto.ResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
