@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
 @Component
-public class PostStarMessageInterceptor implements HandlerInterceptor{
+public class PostMessageInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws NoAuthorityException,UnsupportedEncodingException {
@@ -19,14 +19,11 @@ public class PostStarMessageInterceptor implements HandlerInterceptor{
         request.setCharacterEncoding("utf-8");
         Integer role = (Integer) request.getAttribute(JWTUtil.USER_ROLE_KEY);
 
-        // 预检，若含有authorization，直接过
-        if (request.getMethod().equalsIgnoreCase("OPTIONS") &&
-                request.getHeader("access-control-request-headers").equalsIgnoreCase(JWTUtil.JWT_HTTP_HEADER)) {
-            return true;
-        }
+        // 预检，直接过
+        if (request.getMethod().equalsIgnoreCase("OPTIONS")) return true;
 
         if (role == null || !role.equals(AdminKindEnum.FIRST_COUNCIL_ADMIN.getValue())) {
-            throw new NoAuthorityException();
+            throw new NoAuthorityException("No Authority to Post Message.");
         }
 
         return true;

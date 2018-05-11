@@ -1,7 +1,9 @@
 package com.ctg.flagadmin.config;
 
 import com.ctg.flagadmin.web.interceptor.AuthenticationInterceptor;
-import com.ctg.flagadmin.web.interceptor.PostStarMessageInterceptor;
+import com.ctg.flagadmin.web.interceptor.CouncilAuthorityInterceptor;
+import com.ctg.flagadmin.web.interceptor.PostMessageInterceptor;
+import com.ctg.flagadmin.web.interceptor.SpaceApplyAuthorityInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -10,11 +12,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class InterceptorWebConfigurer implements WebMvcConfigurer {
     private AuthenticationInterceptor authenticationInterceptor;
-    private PostStarMessageInterceptor postStarMessageInterceptor;
+    private PostMessageInterceptor postMessageInterceptor;
+    private CouncilAuthorityInterceptor councilAuthorityInterceptor;
+    private SpaceApplyAuthorityInterceptor spaceApplyAuthorityInterceptor;
+
     public InterceptorWebConfigurer(AuthenticationInterceptor authenticationInterceptor,
-                                    PostStarMessageInterceptor postStarMessageInterceptor) {
+                                    PostMessageInterceptor postMessageInterceptor, CouncilAuthorityInterceptor councilAuthorityInterceptor, SpaceApplyAuthorityInterceptor spaceApplyAuthorityInterceptor) {
         this.authenticationInterceptor = authenticationInterceptor;
-        this.postStarMessageInterceptor = postStarMessageInterceptor;
+        this.postMessageInterceptor = postMessageInterceptor;
+        this.councilAuthorityInterceptor = councilAuthorityInterceptor;
+        this.spaceApplyAuthorityInterceptor = spaceApplyAuthorityInterceptor;
     }
 
     @Override
@@ -29,6 +36,8 @@ public class InterceptorWebConfigurer implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authenticationInterceptor).addPathPatterns("/**").excludePathPatterns("/admin/login");
-        registry.addInterceptor(postStarMessageInterceptor).addPathPatterns("/message/starSpace");
+        registry.addInterceptor(postMessageInterceptor).addPathPatterns("/message/**");
+        registry.addInterceptor(spaceApplyAuthorityInterceptor).addPathPatterns("/spaceApply/**");
+        registry.addInterceptor(councilAuthorityInterceptor).addPathPatterns("/councilOrder/**", "/place/council");
     }
 }

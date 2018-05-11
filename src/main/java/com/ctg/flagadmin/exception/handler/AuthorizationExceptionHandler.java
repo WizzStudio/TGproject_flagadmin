@@ -28,7 +28,7 @@ public class AuthorizationExceptionHandler {
         }
 
         // 记录日志
-        logger.error(sb.toString());
+        logger.info(sb.toString());
 
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 

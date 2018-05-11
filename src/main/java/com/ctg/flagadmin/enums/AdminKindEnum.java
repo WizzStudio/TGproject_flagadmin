@@ -13,18 +13,20 @@ public enum AdminKindEnum {
 
     /**
      * 一级会务室管理员,权限高于二级会务室管理员,能上传场地
+     * 同时也是星火众创申请管理员
      */
     FIRST_COUNCIL_ADMIN(3),
 
     /**
      * 二级会务室管理员,只能查看不能上传
      */
-    SECOND_COUNCIL_ADMIN(4),
+    SECOND_COUNCIL_ADMIN(4);
 
+    // 弃用
     /**
      * 众创申请入驻管理员
      */
-    SPACE_APPLY_ADMIN(5);
+    //SPACE_APPLY_ADMIN(5);
 
     private Integer value ;//状态码
 

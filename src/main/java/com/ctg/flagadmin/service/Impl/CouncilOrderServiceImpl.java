@@ -184,16 +184,16 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
     public void checkByRole(Integer oid, String feedback, Integer state, Integer role) {
         // 审核失败
         if (state == 0) {
-            if (role.equals(AdminKindEnum.FIRST_COUNCIL_ADMIN.getValue())) {
+            if (!role.equals(AdminKindEnum.SECOND_COUNCIL_ADMIN.getValue())) {
                 state = CouncilStateEnum.FIRST_REFUSED.getValue();
-            } else if (role.equals(AdminKindEnum.SECOND_COUNCIL_ADMIN.getValue())) {
+            } else {
                 state = CouncilStateEnum.SECOND_REFUSED.getValue();
             }
         // 审核通过
         } else if (state == 1) {
-            if (role.equals(AdminKindEnum.FIRST_COUNCIL_ADMIN.getValue())) {
+            if (!role.equals(AdminKindEnum.SECOND_COUNCIL_ADMIN.getValue())) {
                 state = CouncilStateEnum.FIRST_ACCEPT.getValue();
-            } else if (role.equals(AdminKindEnum.SECOND_COUNCIL_ADMIN.getValue())) {
+            } else {
                 state = CouncilStateEnum.SECOND_ACCEPT.getValue();
             }
         // 二级不确定, state == 2
