@@ -1,0 +1,29 @@
+.focus {
+  border: 1px solid grey;
+  background: grey;
+}
+.container {
+
+  width: 99%;
+  background-color: #D7D7D7;
+}
+.header {
+  text-align: center;
+  border-bottom: 2px solid grey;
+  width: 100%;
+  font-size: 26px;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+.btn_send {
+  margin-left: 60px;
+}
+.fromBox {
+  margin-left: 510px;
+  margin-top: 100px;
+  width: 100%;
+
+}

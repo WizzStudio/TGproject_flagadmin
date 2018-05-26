@@ -1,0 +1,101 @@
+.header{
+	height: 80px;
+	line-height: 80px;
+	vertical-align: middle;
+	background: #D7D7D7;
+}
+.toFirstPage{
+	
+	position: absolute;
+	right: 139px;
+}
+p{
+  font-size: 25px;
+  position: absolute; 
+  margin-left: 150px; 
+}
+.content{
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	
+}
+.main{
+	margin-left: 5%;
+	margin-right: 10%;
+	
+	margin-top: 20px;
+	
+}
+
+.attitude{
+	clear: both;
+	
+	margin-left: 10%;
+	
+	margin-right: 10%;
+	display: -webkit-flex; /* Safari */
+  display: flex;
+	justify-content:space-between;
+}
+
+textarea{
+	resize: none;
+}
+.right{
+	width: 150px;
+	
+	display: flex;
+	 align-items:center;
+  justify-content:center;
+	
+	
+}
+.top{
+	display: inline-block;
+	width: 90px;
+	margin-left:5%;
+	height: 30px;
+	border: 1px solid black;
+	text-align: center;
+}
+h3{
+	display:inline-block;
+}
+.noSure{
+	display: none;
+}
+.form{
+
+	min-height: 50px;
+	float:right;
+}
+
+.info{
+	position: absolute;
+	width:90%;
+
+	display:flex;
+	 align-items:center;
+  justify-content:center;
+  border-top: 1px solid black;
+  margin-top: 25%;
+}
+caption{
+	font-size: 25px;
+	color: black;
+	
+}
+table{
+	margin-top: 10%;
+}
+td{
+	width: 10%;
+	height: 30px;
+	
+
+}
+.content{
+	height: 1500px;
+	background: #F2F2F2;
+}

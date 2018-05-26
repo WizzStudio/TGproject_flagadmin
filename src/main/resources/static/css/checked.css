@@ -1,0 +1,42 @@
+
+.msg_container {
+    margin-left: 400px;
+    width: 60%;
+}
+.msg_box {
+    position: relative;
+    margin: 10px;
+    width: 50%;
+    padding: 10px;
+    border: 3px solid darkgrey;
+}
+.li_hui {
+    list-style-type: none;
+    color: #ce8483;
+    font-size: x-large;
+    margin: 10px;
+}
+.li_star {
+    list-style-type: none;
+    color: #ce8483;
+    font-size: x-large;
+    margin: 10px;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn-primary {
+    background-color: #ce8483;
+    margin: 10px;
+    border-radius: 6px;
+}
+#tableHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 10px;
+}
+
+

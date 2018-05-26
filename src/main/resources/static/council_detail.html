@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <title>会务室详情页</title>
+    <link rel="stylesheet" href="utils/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/council_detail.css">
+    <script src="utils/jquery.js"></script>
+  </head>
+  <body>
+    <header class="title">
+        <p>场地审批系统</p>
+        <div class="button">
+           <a href="star_index.html" class="btn btn-info btn-lg">返回首页</a>
+        </div>
+    </header>       
+    <div class="body">
+      <p><span id="number"></span></p>
+      <div class="onload">
+          <textarea id ="councilMsg" name = "councilMsg" class="content" rows=8   cols=50  onpropertychange= "this.style.posHeight=this.scrollHeight "></textarea>
+          <button class="btn btn-info btn-lg" id = "btn">上传</button>
+      </div>
+      <!--表格-->
+      <div id="bidHead" style="overflow:hidden">
+      	<div class="maintable">
+          <table class="table">
+                <td>日 期</td>
+                <td>借用时间</td>
+                <td>团队名称</td>
+                <td>活动名称</td>
+                <td>审核状态</td>
+                <td>详细信息</td>
+          </table>
+
+      	</div>
+      </div>
+     
+    </div>
+  </body>
+  	<script src="js/council_detail.js"></script>
+</html>

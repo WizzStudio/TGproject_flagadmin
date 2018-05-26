@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="utils/bootstrap.css" />
+    <title>Document</title>
+    <script type="application/javascript" src="utils/jquery.js"></script>
+    <script type="application/javascript" src="utils/bootstrap.js"></script>
+</head>
+<script>
+    $(function(){
+        var data = [
+            {   "teamName": "team1",
+                "createTime": "2018-04-17T09:14:22.000+0000",
+                "oid": 2},
+            {   "teamName": "team1",
+                "createTime": "2018-04-17T09:14:22.000+0000",
+                "oid": 3},
+            {   "teamName": "team1",
+                "createTime": "2018-04-17T09:14:22.000+0000",
+                "oid": 5}
+        ];
+        var data_star = [
+            {
+                "teamName": "teamname",
+                "id": 1,
+                "createTime": "2018-04-17T09:35:30.000+0000"
+            }
+        ];
+
+        // var date  = (new Date()).toLocaleString('zh',{hour12:false})
+        // var $Li_1 = "<li>dateYear dateTime</li>";
+        for(i = 0; i < data.length;i++)
+        {
+            var dateYear = data[i].createTime.split('T')[0];
+            var dateTime = data[i].createTime.split('T')[1].substring(0,8);
+            var oid = data[i].oid;
+
+            $("ul").append("<li><span style='border: grey 1px solid;margin: 10px; padding: 10px;width: 200px;'> 会务室申请  </span> " +
+                "   <span style='border: grey 1px solid;margin: 10px;padding: 10px; width: 200px'>" + data[i].teamName + "</span>" +
+                    "<span style='border: grey 1px solid;padding: 10px;'>" + dateYear +' '+ dateTime + "</span>" +
+                    "<button type='submit' class='btn-primary ' id=" + oid + " >查看</button></li><br/>")
+                   .addClass("li_hui");
+
+            }
+            for(i = 0;i<data.length;i++){
+                var oid = data[i].oid;
+                $("#" + oid).click( function(){
+                    console.log(oid);
+                });
+            }
+        for(j = 0; j < data_star.length;j++ ){
+            var dateYearStar = data_star[j].createTime.split('T')[0];
+            var dateTimeStar = data_star[j].createTime.split('T')[1].substring(0,8);
+            var id = data_star[j].id;
+            $("ul").append("<li><span style='border: grey 1px solid;margin: 10px;padding: 10px;width: 200px;'> 星火空间申请  </span> " +
+                "   <span style='border: grey 1px solid;margin: 10px; padding:10px;width: 200px'>" + data_star[j].teamName + "</span>" +
+                "<span style='border: grey 1px solid;padding: 10px;'>" + dateYearStar +' '+ dateTimeStar + "</span>" +
+                "<button type='submit' class='btn-primary' id=" + id + " >查看</button></li><br/>")
+                .addClass("li_hui");
+        }
+    });
+    function send(){
+        var values = document.getElementById("text").value;
+        console.log(values);
+    }
+</script>
+<style>
+    .msg_container {
+        margin-left: 400px;
+        width: 60%;
+    }
+    .msg_box {
+        position: relative;
+        margin: 10px;
+        width: 50%;
+        padding: 10px;
+        border: 3px solid darkgrey;
+    }
+    .li_hui {
+        list-style-type: none;
+        color: #ce8483;
+        font-size: x-large;
+        margin: 10px;
+    }
+    .li_star {
+        list-style-type: none;
+        color: #ce8483;
+        font-size: x-large;
+        margin: 10px;
+    }
+    #container {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .btn-primary {
+        background-color: #ce8483;
+        margin: 10px;
+        border-radius: 6px;
+    }
+    #tableHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 10px;
+    }
+
+</style>
+<body>
+<div id="msg" class="msg_container">
+    <from role="from">
+        <textarea id= "text" class="msg_box" name="msg"  cols="30" rows="5" placeholder="填写星火众创空间信息"></textarea>
+        <button id="btn" type="button" class="btn btn-sm btn-primary" onclick="send()" >上传</button>
+    </from>
+</div>
+<hr/>
+
+
+<div id="container">
+    <ul></ul>
+</div>
+
+</body>
+</html>

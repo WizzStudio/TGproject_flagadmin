@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>入驻申请详情页</title>
+  <link rel="stylesheet" href="utils/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/star_pending_detail.css">
+  <script src="utils/jquery.js"></script>
+</head>
+<body>
+  <header class="header">
+  	<p>场地审批系统</p>
+  	<div class="toFirstPage">
+  		<a class="btn btn-info btn-lg" href="star_index.html">返回首页</a>
+  	</div>
+  </header>
+   <div class="content">
+  	 <h3>入驻申请</h3> 
+  	 <div id="top" class="top">
+  	 </div>
+  	 <div class="main">
+		 <form class="form" name= "form1" >
+			  <textarea id="bottom" class="bottom" rows=5  name="bottom" cols=30
+						onpropertychange= "this.style.posHeight=this.scrollHeight "
+			  			placeholder="如若拒绝，请输入拒绝理由"></textarea><br>
+		      <button id="dontSure" >无法确定</button>
+		      <button id="agree" >同意</button>
+		      <button id="refuse" >拒绝</button>
+		 </form>
+		<div id="info" class="info">
+			<!-- 表格-->
+		</div>
+  	 </div>
+  </div>
+  <script type="text/javascript"  src="js/star_pending_detail.js" charset="utf-8" ></script>
+</body>
+</html>
