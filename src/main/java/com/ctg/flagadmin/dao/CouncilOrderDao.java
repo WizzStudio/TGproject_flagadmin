@@ -23,4 +23,6 @@ public interface CouncilOrderDao extends JpaRepository<CouncilOrder, Integer> {
      * @param startTime 分界线
      */
     List<CouncilOrder> findAllByCidAndStateInAndStartTimeGreaterThanOrderByStartTime(Integer id, List<Integer> states, Date startTime);
+
+    List<CouncilOrder> findAllByStateInAndStartTimeGreaterThanOrderByCid(List<Integer> states, Date date);
 }

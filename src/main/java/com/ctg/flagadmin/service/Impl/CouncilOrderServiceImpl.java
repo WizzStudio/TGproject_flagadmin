@@ -148,7 +148,7 @@ public class CouncilOrderServiceImpl implements CouncilOrderService{
         if (role.equals(AdminKindEnum.FIRST_COUNCIL_ADMIN.getValue())) {
             states.add(CouncilStateEnum.SECOND_NOT_SURE.getValue());
         }
-        List<CouncilOrder> cos = councilOrderDao.findAllByStateInOrderByCid(states);
+        List<CouncilOrder> cos = councilOrderDao.findAllByStateInAndStartTimeGreaterThanOrderByCid(states, new Date());
 
         List<Map<String, Object>> counts = new ArrayList<>();
 
